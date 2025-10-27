@@ -24,17 +24,17 @@ public class InstructorService {
         String id = UUID.randomUUID().toString();
         Instructor instructor = new Instructor(id, name, username, password, email, phone);
         DataStore.instructors.put(username, instructor);
-        System.out.println("✅ Registration successful for " + name + "!");
+        System.out.println(" Registration successful for " + name + "!");
     }
 
     public Instructor loginInstructor() {
         System.out.println("\n=== Instructor Login ===");
         System.out.print("Enter username: "); String username = scanner.nextLine();
         System.out.print("Enter password: "); String password = scanner.nextLine();
-        if (!DataStore.instructors.containsKey(username)) { System.out.println("❌ Username not found."); return null; }
+        if (!DataStore.instructors.containsKey(username)) { System.out.println(" Username not found."); return null; }
         Instructor instructor = DataStore.instructors.get(username);
-        if (!instructor.getPassword().equals(password)) { System.out.println("❌ Incorrect password."); return null; }
-        System.out.println("✅ Welcome, " + instructor.getName() + "!");
+        if (!instructor.getPassword().equals(password)) { System.out.println(" Incorrect password."); return null; }
+        System.out.println(" Welcome, " + instructor.getName() + "!");
         return instructor;
     }
 
@@ -45,6 +45,6 @@ public class InstructorService {
         Course course = new Course(courseId, title, instructor.getId());
         DataStore.courses.put(courseId, course);
         instructor.addCourse(courseId);
-        System.out.println("✅ Course '" + title + "' created successfully!");
+        System.out.println(" Course '" + title + "' created successfully!");
     }
 }
