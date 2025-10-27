@@ -64,7 +64,7 @@ public class CourseService {
         DataStore.courses.put(courseCode, c);
         i.addCourse(courseCode);
 
-        System.out.println("✅ Course '" + title + "' created with ID: " + courseCode);
+        System.out.println(" Course '" + title + "' created with ID: " + courseCode);
     }
 
     // === VIEW ALL COURSES ===
@@ -92,17 +92,17 @@ public class CourseService {
 
         Course c = DataStore.courses.get(code);
         if (c == null) {
-            System.out.println("❌ Course not found.");
+            System.out.println(" Course not found.");
             return;
         }
 
         if (s.getEnrolledCourses().contains(code)) {
-            System.out.println("⚠️ You are already enrolled in this course.");
+            System.out.println("You are already enrolled in this course.");
             return;
         }
 
         s.enrollCourse(code);
-        System.out.println("✅ Enrolled successfully in " + c.getTitle() + " (" + code + ")");
+        System.out.println(" Enrolled successfully in " + c.getTitle() + " (" + code + ")");
     }
 
     // === STUDENT VIEW ENROLLED COURSES ===
